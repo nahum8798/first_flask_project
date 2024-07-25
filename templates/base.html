@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Gestión de productos</title>
+<nav>
+    <h1>Gestió de productos</h1>
+    <ul>
+        {% if g.user %}
+            <li><span>{{ g.user['username'] }}</span></li>
+            <li><a href="{{ url_for('auth.logout') }}">Salir</a></li>
+        {% else %}
+            <li><a href="{{ url_for('auth.register') }}">Registrarse</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Ingresar</a></li>
+        {% endif %}
+    </ul>
+</nav>
+<section>
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</section>
